@@ -1,0 +1,201 @@
+/* Styles Généraux */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f7f9fc;
+  color: #333;
+}
+
+h1, h2, h3 {
+  color: #2c3e50;
+}
+
+p {
+  margin: 10px 0 20px;
+}
+
+/* Barre de navigation */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to right, #202233, #4a4b6b);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.header-container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.header-container ul li a {
+  color: white;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.header-container ul li a:hover {
+  background-color: #575b7e;
+}
+
+/* Contenu Principal */
+.main-content {
+  padding: 100px 20px 50px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.social-links {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.social-links h2 {
+  color: #4caf50;
+  margin-bottom: 20px;
+}
+
+.social-links .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-links .social-icons a {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.social-links .social-icons a:hover {
+  transform: scale(1.1);
+}
+
+.social-links .social-icons img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Grilles et Cartes */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+  color: #4caf50;
+  margin-bottom: 10px;
+}
+
+.card p, .card ul {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.card ul {
+  padding-left: 20px;
+}
+
+/* Projets et Boutons */
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background: #4caf50;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #45a049;
+}
+
+.hobbies-section {
+  margin-bottom: 40px;
+}
+
+.hobbies-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #4caf50;
+}
+
+.hobbies-section .grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.hobbies-section .card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hobbies-section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hobbies-section .card h3 {
+  margin-bottom: 10px;
+  color: #4caf50;
+}
+
+
+/* Footer Styles */
+footer {
+  background: #202233;
+  color: #abb2bf;
+  text-align: center;
+  padding: 15px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #f9a8d4;
+}

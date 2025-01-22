@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projets - Mon Parcours</title>
+  <link rel="stylesheet" href="css/styles4.css">
+  <script src="script1.js" defer></script>
+</head>
+<body>
+
+    <!-- Barre de navigation -->
+    <header class="header">
+      <div class="header-container">
+          <div class="logo"></div>
+          <div class="logo">Mon Portfolio</div>
+          <nav>
+              <ul>
+                  <li><a href="index.html">Accueil</a></li>
+                  <li><a href="profil.html">Profil</a></li>
+                  <li><a href="bts-sio.html">BTS SIO</a></li>
+                  <li><a href="entreprises.html">Entreprises</a></li>
+                  <li><a href="projets.html">Projets</a></li>
+                  <li><a href="veille-tech.html">Veilles-Technologies</a></li>
+              </ul>
+          </nav>
+      </div>
+  </header>
+
+    <!-- <div id="settings-modal" class="modal">
+      <div class="modal-content">
+        <h2>Paramètres</h2>
+        <p>Cette section est en cours de construction. 😊</p>
+        <button class="close-button">Fermer</button>
+      </div>
+    </div> -->
+    
+  </header>
+
+  <!-- Contenu de la page Projets -->
+  <main class="main-content">
+    <section class="intro-section">
+      <h1>Mes Projets</h1>
+      <p>Explorez mes différents projets sous forme de dossiers et de fichiers :</p>
+    </section>
+
+    <!-- Interface Système d'exploitation avec dossiers et fichiers -->
+    <section class="projects-section">
+      <div class="folder">
+        <div class="folder-header">Projets Formations</div>
+        <div class="files">
+          <div class="file" onclick="openPDF('pdf/AP1-Comic-verse.pdf')">Projet 1 - Création d'une entreprise virtuelle (AP1)</div>
+          <div class="file" onclick="openPDF('pdf/AP2 presentation.pdf')">Projet 2 - Répondre aux problématique de M2L (AP2)</div>
+          <div class="file" onclick="openPDF('pdf/[PROXMOX] - Installation (1).pdf')">Projet 3 - Installation et configuration d'un hyperviseur Promox </div>
+          <div class="file" onclick="openPDF('pdf/devc.pdf')">Projet 4 - Mise en place d'un outil de gestion de projet (GitHub/Teams) </div>
+          <div class="file" onclick="openPDF('pdf/Inventaire.pdf')">Projet 5 - Inventaire des équipements réseaux </div>
+          <div class="file" onclick="openPDF('pdf/Google Alerts_comment créer une alerte.pdf')">Projet 6 - Mettre en place un outil de veille technologique (Google alerts) </div>
+          <div class="file" onclick="openPDF('pdf/Introduction à la certification CCNA.pdf')">Projet 7 - Certification CCNA </div>
+          <div class="file" onclick="openPDF('pdf/Installation de Zabbix.pdf')">Projet 8 - Installation de Zabbix </div>
+        </div>
+      </div>
+
+      <div class="folder">
+        <div class="folder-header">Projets Entreprises</div>
+        <div class="files">
+          <div class="file" onclick="openPDF('pdf/devc.pdf')">Projet 1 - Soutenance et configuration Audiovisuel</div>
+          <div class="file" onclick="openPDF('pdf/devc.pdf')">Projet 2 - Assistance aux utilisateurs</div>
+          <div class="file" onclick="openPDF('pdf/Script PowerShell_V2V.pdf')">Projet 3 - Script Powershell autotimisation-1er année</div>
+          <div class="file" onclick="openPDF('pdf/devc.pdf')">Projet 4 - Script Powershell autotimisation-2eme année</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fenêtre modale pour afficher les PDFs -->
+    <div id="pdfModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closePDF()">&times;</span>
+        <iframe id="pdfViewer" src="" width="100%" height="600px"></iframe>
+      </div>
+    </div>
+  </main>
+
+   <!-- Footer -->
+   <footer>
+    <p>© 2025 Chang Keycie, Portfolio. Tous droits réservés. | <a href="index.html">Accueil</a></p>
+  </footer>
+
+</body>
+</html>

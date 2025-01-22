@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Système Ubuntu Web</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --primary-color: #333;
+      --secondary-color: #f4f4f4;
+      --accent-color: #0095f6;
+      --hover-color: #007bb5;
+      --text-light: #ffffff;
+      --text-dark: #000000;
+      --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Ubuntu', sans-serif;
+      background-image: url('images/pexels-cafer-caner-savli-1725684886-29961083.jpg');
+      background-size: cover;
+      background-position: center;
+      color: var(--text-light);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+      z-index: 1000;
+    }
+
+    .top-bar .icon {
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+.projects-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px; /* Ajoute de l'espace entre les éléments */
+  margin-top: 50px;
+}
+
+.dock {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Espacement entre les éléments du dock */
+  background: var(--secondary-color);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.dock ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dock li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: var(--primary-color);
+  color: var(--text-light);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dock li:hover {
+  background: var(--hover-color);
+  color: var(--text-light);
+  transform: scale(1.1); /* Légère augmentation de taille au survol */
+}
+
+
+    .mini-page {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      color: var(--text-light);
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: var(--box-shadow);
+      font-size: 14px;
+    }
+
+    .mini-page a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .mini-page a:hover {
+      text-decoration: underline;
+    }
+
+    .projects-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin: auto;
+    }
+
+    .file {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      background: var(--secondary-color);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: var(--box-shadow);
+      cursor: pointer;
+    }
+
+    .file:hover {
+      transform: scale(1.05);
+      background: var(--accent-color);
+      color: var(--text-light);
+    }
+
+    .file-title {
+      margin-top: 10px;
+      font-weight: bold;
+      color: var(--text-dark);
+    }
+
+    /* Fenêtres */
+    .window {
+      position: absolute;
+      width: 900px;
+      height: 500px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      z-index: 10;
+      cursor: default;
+      transition: box-shadow 0.2s ease;
+    }
+    
+    .window:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+    
+    .window-header {
+      background: #1a1919;
+      color: white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: grab;
+    }
+    
+    .window-header:active {
+      cursor: grabbing;
+    }
+    
+    .window-content {
+      flex: 1;
+      overflow: auto;
+      background: #f4f4f4;
+    }
+    
+    /* Bouton de suivi */
+    .follow-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #0095f6;
+      color: #fff;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    
+    .follow-btn:hover {
+      background-color: #007bb5;
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    .maximized {
+      width: 100% !important;
+      height: 100% !important;
+      top: 0 !important;
+      left: 0 !important;
+    }
+    
+    
+  </style>
+</head>
+<body>
+  <!-- Barre supérieure -->
+  <header class="top-bar">
+    <div class="left">
+      <span class="menu-icon">CHANG Keycie</span>
+    </div>
+    <div class="center">
+      <span class="date-time">27 Nov 10:49</span>
+    </div>
+    <div class="top-right">
+      <span class="icon">🔊</span>
+      <span class="icon">📶</span>
+      <span class="icon">🔋</span>
+      <span class="icon">⚙️</span>
+    </div>
+  </header>
+
+  <!-- Page principale -->
+  <div class="mini-page">
+    <p>Bienvenue sur mon portfolio !</p>
+    <ul><a href="profil.html">Voir mon profil</a></ul>
+    <ul><a href="contact.html">Me contacter</a></ul>
+    <p>© Keycie Chang 2025</p>
+  </div>
+
+<!-- Section principale regroupant les fichiers et le dock -->
+<main class="projects-section">
+  <!-- Dock centralisé -->
+  <nav class="dock">
+    <ul>
+      <li data-page="help.html" class="window-btn"><span class="icon">❓</span>Aides</li>
+      <li data-page="profil.html" class="window-btn"><span class="icon">👤</span>Profil</li>
+      <li data-page="bts-sio.html" class="window-btn"><span class="icon">📚</span>BTS SIO</li>
+      <li data-page="entreprises.html" class="window-btn"><span class="icon">🏢</span>Entreprises</li>
+      <li data-page="projets.html" class="window-btn"><span class="icon">💻</span>Projets</li>
+      <li data-page="veille-tech.html" class="window-btn"><span class="icon">🌐</span>Veille Tech</li>
+    </ul>
+  </nav>
+
+  <!-- Fichiers -->
+  <div class="file" onclick="openPDF('pdf/CHANG_Tableau de synthese E4.pdf')">
+    <div class="file-icon">📄</div>
+    <div class="file-title">Synthèse</div>
+  </div>
+  <div class="file" onclick="openPDF('pdf/cv_chgkey.pdf')">
+    <div class="file-icon">📁</div>
+    <div class="file-title">CV</div>
+  </div>
+</main>
+
+  <div id="windows-container"></div>
+
+  <script>
+    const dockItems = document.querySelectorAll('.dock li');
+    const windowsContainer = document.getElementById('windows-container');
+    const dateTimeElement = document.querySelector('.date-time');
+
+    function createWindow(title, page) {
+      const windowElement = document.createElement('div');
+      windowElement.classList.add('window');
+      windowElement.innerHTML = `
+        <div class="window-header">
+          <span class="title">${title}</span>
+          <div class="controls">
+            <button class="minimize">➖</button>
+            <button class="maximize">🗖</button>
+            <button class="close">✖</button>
+          </div>
+        </div>
+        <div class="window-content">
+          <iframe src="${page}" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+        </div>
+      `;
+
+      windowElement.style.top = `${Math.random() * 200 + 50}px`;
+      windowElement.style.left = `${Math.random() * 200 + 50}px`;
+
+      const closeButton = windowElement.querySelector('.close');
+      closeButton.addEventListener('click', () => windowElement.remove());
+
+      const minimizeButton = windowElement.querySelector('.minimize');
+      minimizeButton.addEventListener('click', () => {
+        const content = windowElement.querySelector('.window-content');
+        content.classList.toggle('hidden');
+      });
+
+      const maximizeButton = windowElement.querySelector('.maximize');
+      maximizeButton.addEventListener('click', () => {
+        windowElement.classList.toggle('maximized');
+      });
+
+      addDragFunctionality(windowElement);
+      windowsContainer.appendChild(windowElement);
+    }
+
+    function addDragFunctionality(windowElement) {
+      const header = windowElement.querySelector('.window-header');
+
+      let isDragging = false;
+      let offsetX = 0;
+      let offsetY = 0;
+
+      header.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        offsetX = e.clientX - windowElement.offsetLeft;
+        offsetY = e.clientY - windowElement.offsetTop;
+        windowElement.style.zIndex = 1000;
+      });
+
+      document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+          windowElement.style.left = `${e.clientX - offsetX}px`;
+          windowElement.style.top = `${e.clientY - offsetY}px`;
+        }
+      });
+
+      document.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+    }
+
+    dockItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        const page = item.getAttribute('data-page');
+        const title = item.textContent.trim();
+        createWindow(title, page);
+      });
+    });
+
+    function updateDateTime() {
+      const now = new Date();
+      const formattedDate = now.toLocaleDateString('fr-FR', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+      const formattedTime = now.toLocaleTimeString('fr-FR');
+      dateTimeElement.textContent = `${formattedDate} ${formattedTime}`;
+    }
+
+    setInterval(updateDateTime, 1000);
+  </script>
+</body>
+</html>
